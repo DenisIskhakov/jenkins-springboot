@@ -7,25 +7,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                   echo 'Build'
+                sh './gradlew assemble'
             }
         }
         stage('Test') {
             steps {
-                   echo 'Test'
+                sh './gradlew test'
             }
         }
-          stage('Build Docker image') {
-                    steps {
-                        sh 'chmod +x gredlew'
-                        sh './gradlew docker'
-                    }
-                }
-                stage('Push Docker image') {
-                    steps {
-                        sh 'docker login --username=examplejenkins --password=qwerty12345'
-                        sh './gradlew dockerPush'
-                    }
-                }
     }
 }
