@@ -34,6 +34,9 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+String dockerHubUsernameProperty = findProperty('dockerHubUsername') ?: 'examplejenkins'
+String imageName = "${dockerHubUsernameProperty}/spring-boot-api-example:$version"
+
 docker {
     name imageName
     files "build/libs/${bootJar.archiveFileName.get()}"
