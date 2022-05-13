@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Build Docker image') {
             environment {
-                GRADLE_OPTS = -Djsse.enableSNIExtension=false
+                GRADLE_OPTS = '-Djsse.enableSNIExtension=false'
             }
             steps {
                 sh './gradlew docker'
