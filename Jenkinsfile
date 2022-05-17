@@ -23,11 +23,6 @@ pipeline {
                 sh './gradlew docker'
             }
         }
-        stage('Push Docker image') {
-            steps {
-                sh 'docker login --username=examplejenkins --password=qwerty12345'
-                sh './gradlew dockerPush'
-            }
-        }
+
     }
 }
